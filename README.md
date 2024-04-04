@@ -3,9 +3,11 @@ Online eHotel website
 
 Steps to install:
 
-Install XAMPP/MAMP/Whatever php manager you may have.
+Install php manager to use.
 
-Import the test_data.sql and then put the eHotels webapp in your phpmyadmin htdocs
+Import the test_data.sql 
+
+put the eHotels webapp in your phpmyadmin htdocs
 
 Navigate to localhost/eHotels/index.php
 
