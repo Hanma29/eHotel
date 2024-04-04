@@ -1,0 +1,32 @@
+ SELECT rooms.* FROM rooms LEFT JOIN renting ON rooms.room_id = renting.room_id WHERE renting.room_id IS NULL OR (renting.room_id IS NOT NULL AND ('1712786400' NOT BETWEEN renting.fromDate AND renting.toDate OR '1712786400' NOT BETWEEN renting.fromDate AND renting.toDate)) AND rooms.hotel_id IN ( SELECT DISTINCT hotel_id FROM hotels WHERE chain_id ='1' AND hotels.hotel_score>='1' AND hotels.totalRooms >='1' AND hotels.hotel_addressline1='LA CALIFORNA') AND rooms.price <= '1' AND rooms.capacity >= '1' 
+
+
+
+
+
+
+  SELECT rooms.*
+        FROM rooms
+        LEFT JOIN renting ON rooms.room_id = renting.room_id
+        WHERE (renting.room_id IS NULL 
+           OR  ('1711839600' NOT BETWEEN renting.fromDate AND renting.toDate 
+                   )
+        AND rooms.hotel_id IN (
+            SELECT DISTINCT hotel_id
+            FROM hotels
+            WHERE chain_id ='1' AND hotels.hotel_score>='2' AND hotels.totalRooms >='4' AND hotels.hotel_addressline1='LA CALIFORNA')
+        AND rooms.price <= '400'
+        AND rooms.capacity >= '1');
+      
+
+
+SELECT rooms.* FROM rooms LEFT JOIN renting ON rooms.room_id = renting.room_id WHERE 
+(renting.room_id IS NULL OR ('1711839600' NOT BETWEEN renting.fromDate AND renting.toDate)                                                                         
+AND rooms.hotel_id IN (SELECT DISTINCT hotel_id FROM hotels
+WHERE chain_id ='1' AND hotels.hotel_score>='2' AND hotels.totalRooms >='4' AND hotels.hotel_addressline1='LA CALIFORNA') AND rooms.price <= '400' AND rooms.capacity >= '1');
+           
+
+
+## Run 1
+
+SELECT DISTINCT rooms.* FROM rooms LEFT JOIN renting ON rooms.room_id = renting.room_id WHERE renting.room_id IS NULL OR (renting.room_id IS NOT NULL AND ('1712008800' NOT BETWEEN renting.fromDate AND renting.toDate AND '1712008800' NOT BETWEEN renting.fromDate AND renting.toDate)) AND rooms.hotel_id IN ( SELECT DISTINCT hotel_id FROM hotels WHERE chain_id ='1' AND hotels.hotel_score>='1' AND hotels.totalRooms >='1' AND hotels.hotel_addressline1='LA CALIFORNA') AND rooms.price <= '400' AND rooms.capacity >= '1' 
